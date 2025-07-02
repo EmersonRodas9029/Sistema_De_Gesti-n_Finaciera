@@ -1,7 +1,7 @@
 package com.codepuppeteer.sistema_gastos_clientes.security;
 
 import com.codepuppeteer.sistema_gastos_clientes.entity.Usuario;
-import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,14 +9,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@AllArgsConstructor
+@Getter
 public class UsuarioDetails implements UserDetails {
 
     private final Usuario usuario;
 
+    public UsuarioDetails(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + usuario.getRol().name()));
+        return List.of(new SimpleGrantedAuthority(usuario.getRol().name()));
     }
 
     @Override
