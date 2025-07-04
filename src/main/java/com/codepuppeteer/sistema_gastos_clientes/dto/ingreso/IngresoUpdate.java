@@ -9,6 +9,6 @@ public record IngresoUpdate(
         @NotNull BigDecimal monto,
         @NotNull LocalDate fecha,
         String descripcion,
-        @NotNull String tipo
-) {
-}
+        @NotNull String tipo,
+        @NotNull Long clienteId
+) {}
