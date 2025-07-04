@@ -9,6 +9,7 @@ public record GastoUpdate(
         @NotNull BigDecimal monto,
         @NotNull LocalDate fecha,
         String descripcion,
-        Long categoriaId
-) {
-}
+        Long categoriaId,
+        @NotNull Long clienteId
+) {}
+
